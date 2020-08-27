@@ -20,11 +20,13 @@ def tweet_it(api):
 	print("Time: {}, tweeting".format(time.ctime()))
 	mytweet = make_tweet(getnoun())
 	print(mytweet)
-	api.update_status(mytweet)
+#	api.update_status(mytweet)
 
 def getnoun():
     nouns = {x.name().split('.', 1)[0] for x in wn.all_synsets('n')}
     return random.sample(nouns,1)
 
 def make_tweet(noun):
-    return noun[0] + ' is a prison'
+    raw_noun = noun[0]
+    out_noun = raw_noun.replace('_',' ')
+    return out_noun + ' is a prison'

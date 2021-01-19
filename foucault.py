@@ -20,7 +20,7 @@ def tweet_it(api):
 	print("Time: {}, tweeting".format(time.ctime()))
 	mytweet = make_tweet(getnoun())
 	print(mytweet)
-#	api.update_status(mytweet)
+	api.update_status(mytweet)
 
 def getnoun():
     nouns = {x.name().split('.', 1)[0] for x in wn.all_synsets('n')}
